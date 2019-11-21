@@ -1,7 +1,6 @@
-
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Cars.Modules;
+using CarsManager.Data.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,7 +39,7 @@ namespace MediatR
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            builder.RegisterModule(new RepositoryModule());
+            builder.RegisterModule(new DataModule());
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
