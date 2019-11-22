@@ -1,14 +1,10 @@
 ﻿using Core.Interfaces.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarsManager.Controllers
 {
     [Route("test")]
-    public class TestController:BaseController
+    public class TestController : BaseController
     {
         private readonly ICarRepository _carRepository;
         public TestController(ICarRepository carRepository)

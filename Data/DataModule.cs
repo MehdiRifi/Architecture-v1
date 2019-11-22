@@ -4,7 +4,7 @@ using Data.Repositories;
 
 namespace CarsManager.Data.Modules
 {
-    public class DataModule:Module
+    public class DataModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsManager", "CarsManager\CarsManager.csproj", "{30F54F0C-B84E-403B-A9AC-5A9D6BFDA823}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "CarsManager\Web.csproj", "{30F54F0C-B84E-403B-A9AC-5A9D6BFDA823}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AE133F11-1A6C-4B39-B6B4-FCFABD43F69A} = {AE133F11-1A6C-4B39-B6B4-FCFABD43F69A}
 	EndProjectSection
