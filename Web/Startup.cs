@@ -1,5 +1,6 @@
 using Autofac;
 using CarsManager.Data.Modules;
+using Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,9 @@ namespace Web
             services.AddOptions();
             services.AddMvcCore()
                 .AddApiExplorer();
+
+            //Register Db Context
+            services.AddDbContext<AppDbContext>();
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
