@@ -1,5 +1,5 @@
 using Autofac;
-using CarsManager.Data.Modules;
+using Architecture.Data.Modules;
 using Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

@@ -3,7 +3,7 @@ using Data.Configuration;
 using Data.Context;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarsManager.Controllers
+namespace Architecture.Controllers
 {
     [Route("test")]
     public class TestController : BaseController

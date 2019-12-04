@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CarsManager.Domain.Entities
+namespace Architecture.Domain.Entities
 {
     public class BaseEntity
     {

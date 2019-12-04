@@ -1,4 +1,4 @@
-﻿using CarsManager.Domain.Entities;
+﻿using Architecture.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

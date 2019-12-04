@@ -2,7 +2,7 @@
 using Core.Interfaces.Repositories;
 using Data.Repositories;
 
-namespace CarsManager.Data.Modules
+namespace Architecture.Data.Modules
 {
     public class DataModule : Module
     {

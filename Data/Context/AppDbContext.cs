@@ -1,4 +1,4 @@
-﻿using CarsManager.Domain.Entities;
+﻿using Architecture.Domain.Entities;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
