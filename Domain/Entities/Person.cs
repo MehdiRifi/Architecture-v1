@@ -5,7 +5,10 @@ using System.Text;
 
 namespace Domain.Entities
 {
-    class Person:BaseEntity
+    public class Person:BaseEntity
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }

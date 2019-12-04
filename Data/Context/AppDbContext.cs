@@ -1,4 +1,5 @@
 ﻿using CarsManager.Domain.Entities;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace Data.Context
 {
    public class AppDbContext:DbContext
     {
+
+        public DbSet<Person> People { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {
 

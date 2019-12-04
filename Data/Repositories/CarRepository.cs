@@ -2,7 +2,7 @@
 
 namespace Data.Repositories
 {
-    class CarRepository : ICarRepository
+    public class CarRepository : ICarRepository
     {
         public int GetYear()
         {
