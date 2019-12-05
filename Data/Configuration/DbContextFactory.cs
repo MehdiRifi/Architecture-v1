@@ -17,7 +17,7 @@ namespace Data.Configuration
         public AppDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-
+            optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseSqlite(DataConnectionString);
             return new AppDbContext(optionsBuilder.Options);
         }

@@ -43,5 +43,9 @@ namespace Data.Context
                 ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
             }
         }
+        internal  bool IsTracked<T>(T key) where T:BaseEntity
+        {
+                return this.Set<T>().Local.Any(x => x.Id == key.Id);
+        }
     }
 }

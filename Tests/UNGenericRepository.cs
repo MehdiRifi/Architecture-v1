@@ -34,11 +34,12 @@ namespace Tests
             }
         }
         [TestMethod]
-        public async Task AddTest()
+        public async Task<Person> AddTest()
         {
             var person = new Person { FirstName = "Mehdi", LastName = "Rifi", BirthDate = new DateTime(1995, 05, 18) };
             await _repository.Add(person);
             Assert.IsTrue(person.Id > 0);
+            return person;
         }
         [TestMethod]
         public async Task GetByIdTest()
@@ -46,6 +47,15 @@ namespace Tests
             await AddTest();
             var person = await _repository.GetById(1);
             Assert.IsTrue(person != null);
+        }
+        [TestMethod]
+        public async Task DeleteById()
+        {
+
+            var person =await AddTest();
+            await _repository.Delete(person);
+            person = await _repository.GetById(1);
+            Assert.IsTrue(person == null);
         }
     }
 }
