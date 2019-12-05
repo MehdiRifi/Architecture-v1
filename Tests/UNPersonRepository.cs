@@ -5,24 +5,27 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Tests
 {
     [TestClass]
-
-    public class UNGenericRepository:BaseTestRepsotiory
+    public class UNPersonRepository:BaseTestRepsotiory
     {
-        private IRepository<Person> _repository;
-        public UNGenericRepository()
+
+        private IPersonRepository _personRepository;
+        public UNPersonRepository()
         {
-            _repository = new EFRepository<Person>(DbContext);
+            _personRepository = new PersonRepository(DbContext);
         }
+    
         [TestMethod]
         public async Task<Person> AddTest()
         {
             var person = new Person { FirstName = "Mehdi", LastName = "Rifi", BirthDate = new DateTime(1995, 05, 18) };
-            await _repository.Add(person);
+            await _personRepository.Add(person);
             Assert.IsTrue(person.Id > 0);
             return person;
         }
@@ -30,17 +33,21 @@ namespace Tests
         public async Task GetByIdTest()
         {
             await AddTest();
-            var person = await _repository.GetById(1);
+            var person = await _personRepository.GetById(1);
             Assert.IsTrue(person != null);
         }
         [TestMethod]
         public async Task DeleteById()
         {
 
-            var person =await AddTest();
-            await _repository.Delete(person);
-            person = await _repository.GetById(1);
+            var person = await AddTest();
+            await _personRepository.Delete(person);
+            person = await _personRepository.GetById(1);
             Assert.IsTrue(person == null);
         }
+
+
+
+
     }
 }
