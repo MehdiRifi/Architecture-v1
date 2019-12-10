@@ -1,4 +1,5 @@
-﻿using Data.Context;
+﻿using Data.Configuration;
+using Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
@@ -7,9 +8,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Data.Configuration
+namespace Data.Context
 {
-    public class DbContextFactory :
+    public class AppDbContextFactory :
         IDesignTimeDbContextFactory<AppDbContext>
     {
         private static string DataConnectionString => new DatabaseConfiguration().GetDataConnectionString();
