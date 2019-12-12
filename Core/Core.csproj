@@ -6,7 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\UseCases\" />
-    <Folder Include="UseCases\" />
+    <Folder Include="Implementation\" />
+    <Folder Include="Implementation\UseCases\" />
   </ItemGroup>
 
   <ItemGroup>
