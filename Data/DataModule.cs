@@ -9,6 +9,7 @@ namespace Architecture.Data.Modules
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<PersonRepository>().As<IPersonRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
         }
     }
 }

@@ -13,43 +13,44 @@ namespace Data.Repositories
 {
     public class EFRepository<T> : IRepository<T> where T : BaseEntity
     {
-        public readonly AppDbContext _appDbContext;
+        public readonly AppDbContext AppDbContext;
+        protected DbSet<T> _entities => AppDbContext.Set<T>();
         public EFRepository(AppDbContext appDbContext)
         {
-            _appDbContext = appDbContext;
+            AppDbContext = appDbContext;
         }
         public virtual async Task<T> GetById(int id)
         {
-            return await _appDbContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+            return await AppDbContext.Set<T>().AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
         }
         public async Task<List<T>> ListAll()
         {
-            return await _appDbContext.Set<T>().AsNoTracking().ToListAsync();
+            return await AppDbContext.Set<T>().AsNoTracking().ToListAsync();
         }
         public async Task<T> Add(T entity)
         {
-            _appDbContext.Set<T>().Add(entity);
-            await _appDbContext.SaveChangesAsync();
+            AppDbContext.Set<T>().Add(entity);
+            await AppDbContext.SaveChangesAsync();
             return entity;
         }
         public async Task Update(T entity)
         {
-            _appDbContext.Update(entity);
-            await _appDbContext.SaveChangesAsync();
+            AppDbContext.Update(entity);
+            await AppDbContext.SaveChangesAsync();
         }
         public async Task Delete(T entity)
         {
-            _appDbContext.Set<T>().Remove(entity);
-            await _appDbContext.SaveChangesAsync();
+            AppDbContext.Set<T>().Remove(entity);
+            await AppDbContext.SaveChangesAsync();
         }
         public Task<bool> Any(Func<T, bool> predicate)
         {
-            return Task.FromResult(_appDbContext.Set<T>().AsNoTracking().Any(predicate));
+            return Task.FromResult(AppDbContext.Set<T>().AsNoTracking().Any(predicate));
         }
         public Task<List<T>> ListWithIncludes(Expression<Func<T, bool>> predicate, params Expression<Func<T, Object>>[] includes)
         {
 
-            var query = _appDbContext.Set<T>().AsQueryable();
+            var query = AppDbContext.Set<T>().AsQueryable();
             for (int i = 0; i < includes.Length; i++)
             {
                 query = query.Include(includes[i]).AsNoTracking();
@@ -58,11 +59,11 @@ namespace Data.Repositories
         }
         public Task<T> GetSingleBySpec(Func<T, bool> predicate)
         {
-            return Task.FromResult(_appDbContext.Set<T>().AsNoTracking().FirstOrDefault(predicate));
+            return Task.FromResult(AppDbContext.Set<T>().AsNoTracking().FirstOrDefault(predicate));
         }
         public Task<List<T>> List(Func<T, bool> predicate)
         {
-            return Task.FromResult(_appDbContext.Set<T>().Where(predicate).ToList());
+            return Task.FromResult(AppDbContext.Set<T>().Where(predicate).ToList());
         }
     }
 }

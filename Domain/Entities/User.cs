@@ -14,5 +14,13 @@ namespace Domain.Entities
         public string Email { get; private set; }
         public string PasswordHash { get; private set; }
         internal User() { /* Required by EF */ }
+        public User(string firstName, string lastName, string identityId, string userName)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            IdentityId = identityId;
+            UserName = userName;
+        }
+
     }
 }
